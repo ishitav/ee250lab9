@@ -16,7 +16,7 @@ def final_process(data1: List[int], data2: List[int]) -> List[int]:
     """Calculate the mean difference between two lists of integers."""
     return np.mean([data1[i] - data2[i] for i in range(len(data1))])
 
-offload_url = 'http://172.20.10.2:5001'
+offload_url = 'http://172.20.10.4:5001'
 
 def run(offload: Optional[str] = None) -> float:
     data = generate_data()
