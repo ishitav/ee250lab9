@@ -6,17 +6,37 @@ import pandas as pd
 import requests
 import plotly.express as px
 
-from processes import process1, process2  # Assuming the process functions are in a separate module
 
 def generate_data() -> List[int]:
     """Generate some random data."""
     return np.random.randint(100, 10000, 1000).tolist()
 
-def final_process(data1: List[int], data2: List[int]) -> List[int]:
-    """Calculate the mean difference between two lists of integers."""
-    return np.mean([data1[i] - data2[i] for i in range(len(data1))])
+def process1(data: List[int]) -> List[int]:
+    """TODO: Document this function. What does it do? What are the inputs and outputs?"""
+    def foo(x):
+        """Find the next largest prime number."""
+        while True:
+            x += 1
+            if all(x % i for i in range(2, x)):
+                return x
+    return [foo(x) for x in data]
 
-offload_url = 'http://172.20.10.4:5001'
+def process2(data: List[int]) -> List[int]:
+    """TODO: Document this function. What does it do? What are the inputs and outputs?"""
+    def foo(x):
+        """check if number is perfect square."""
+        while True:
+            x += 1
+            if int(np.sqrt(x)) ** 2 == x:
+                return x
+    return [foo(x) for x in data]
+
+
+def final_process(data1: List[int], data2: List[int]) -> List[int]:
+    """TODO: Document this function. What does it do? What are the inputs and outputs?"""
+    return np.mean([x - y for x, y in zip(data1, data2)])
+
+offload_url = 'http://172.20.10.2:5001'
 
 def run(offload: Optional[str] = None) -> float:
     data = generate_data()
