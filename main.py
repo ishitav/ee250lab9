@@ -71,7 +71,7 @@ def run(offload: Optional[str] = None) -> float:
     return final_process(data1, data2)
 
 def main():
-    modes = [None, 'process1', 'process2', 'both']
+    modes = ['None', 'process1', 'process2', 'both']
     rows = []
     for mode in modes:
         times = []
